@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>800.com — Candidate Pipeline</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #f8fafc; }
+  .badge { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; letter-spacing: 0.02em; }
+  .badge-active     { background: #dcfce7; color: #15803d; }
+  .badge-sent       { background: #dbeafe; color: #1d4ed8; }
+  .badge-offer      { background: #fef9c3; color: #a16207; }
+  .badge-rejected   { background: #fee2e2; color: #b91c1c; }
+  .badge-upcoming   { background: #f3f4f6; color: #6b7280; }
+  .badge-2nd        { background: #ede9fe; color: #7c3aed; }
+  .badge-3rd        { background: #fce7f3; color: #be185d; }
+  .role-card { background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; overflow: hidden; }
+  .role-header { padding: 14px 20px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; }
+  .role-count { background: #f1f5f9; color: #64748b; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; padding: 8px 20px; font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; background: #fafafa; border-bottom: 1px solid #f1f5f9; }
+  td { padding: 11px 20px; font-size: 13px; color: #1e293b; border-bottom: 1px solid #f8fafc; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafbff; }
+  .summary-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  .summary-pill { background: white; border-radius: 10px; padding: 12px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); display: flex; flex-direction: column; }
+  .summary-pill .num { font-size: 24px; font-weight: 700; color: #1e293b; }
+  .summary-pill .lbl { font-size: 11px; color: #94a3b8; font-weight: 500; margin-top: 2px; }
+</style>
+</head>
+<body class="p-8">
+
+<div class="max-w-4xl mx-auto">
+
+  <!-- Header -->
+  <div class="mb-6">
+    <div class="flex items-center gap-3 mb-1">
+      <div style="font-size:28px; font-weight:800; color:#0f172a;">800.com</div>
+      <div class="badge badge-active">Active Project</div>
+    </div>
+    <div style="color:#64748b; font-size:14px;">CEO: Pete Petersen · 7 open roles · RFR Client</div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-bar">
+    <div class="summary-pill"><span class="num">21</span><span class="lbl">Total Candidates</span></div>
+    <div class="summary-pill"><span class="num" style="color:#15803d;">5</span><span class="lbl">Active / Interviewing</span></div>
+    <div class="summary-pill"><span class="num" style="color:#1d4ed8;">3</span><span class="lbl">Sent to Pete</span></div>
+    <div class="summary-pill"><span class="num" style="color:#a16207;">1</span><span class="lbl">Got Offer</span></div>
+    <div class="summary-pill"><span class="num" style="color:#b91c1c;">9</span><span class="lbl">Rejected</span></div>
+    <div class="summary-pill"><span class="num" style="color:#6b7280;">3</span><span class="lbl">Upcoming</span></div>
+  </div>
+
+  <!-- Account Growth Rep -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Account Growth Rep</span>
+      <span class="role-count">5 candidates</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Melissa Nunez</td><td style="color:#94a3b8;">3/5</td><td>Riverview, FL</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+      <tr><td>David Haering</td><td style="color:#94a3b8;">3/12</td><td>CA</td><td><span class="badge badge-active">Interviewing</span></td></tr>
+      <tr><td>Carter O'Brien</td><td style="color:#94a3b8;">3/17</td><td>NC</td><td><span class="badge badge-sent">Sent to Pete</span></td></tr>
+      <tr><td>Hanna Melynk</td><td style="color:#94a3b8;">3/18</td><td>FL</td><td><span class="badge badge-upcoming">Upcoming</span></td></tr>
+      <tr><td>Becca Pfister</td><td style="color:#94a3b8;">3/18</td><td>Louisiana</td><td><span class="badge badge-upcoming">Upcoming</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Auto Division -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Auto Division — Call Tracking Sales Executive</span>
+      <span class="role-count">4 candidates</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Shane Bell</td><td style="color:#94a3b8;">3/4</td><td>Austin, TX</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+      <tr><td>Gretchen Arellano</td><td style="color:#94a3b8;">3/5</td><td>San Diego, CA</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+      <tr><td>Amber McQuillin</td><td style="color:#94a3b8;">3/9</td><td>Michigan</td><td><span class="badge badge-2nd">2nd Interview</span></td></tr>
+      <tr><td>Missy Conant</td><td style="color:#94a3b8;">3/10</td><td>MA</td><td><span class="badge badge-sent">Sent to Pete</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Rehab Division -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Rehab Division</span>
+      <span class="role-count">1 candidate</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Christine Proffitt</td><td style="color:#94a3b8;">3/5</td><td>Indianapolis, IN</td><td><span class="badge badge-3rd">3rd Interview</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Legal Division -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Legal Division</span>
+      <span class="role-count">6 candidates</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Haley Hambly</td><td style="color:#94a3b8;">3/1</td><td>San Diego, CA</td><td><span class="badge badge-rejected">Rejected (no-show)</span></td></tr>
+      <tr><td>Kim Delano</td><td style="color:#94a3b8;">3/6</td><td>Las Vegas, NV</td><td><span class="badge badge-offer">Got Offer</span></td></tr>
+      <tr><td>Roger Leathers</td><td style="color:#94a3b8;">3/12</td><td>AZ</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+      <tr><td>Charles Amechi</td><td style="color:#94a3b8;">3/16</td><td>Austin, TX</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+      <tr><td>Sean Crowley</td><td style="color:#94a3b8;">3/18</td><td>NJ</td><td><span class="badge badge-rejected">Not a Fit</span></td></tr>
+      <tr><td>Brandy Harris-Karnes</td><td style="color:#94a3b8;">3/19</td><td>TX</td><td><span class="badge badge-upcoming">Upcoming</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Home Services Division -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Home Services Division</span>
+      <span class="role-count">1 candidate</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>David Greenbert</td><td style="color:#94a3b8;">3/11</td><td>NJ</td><td><span class="badge badge-active">Interviewing</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Content Marketing -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Content Marketing & Sales Enablement</span>
+      <span class="role-count">3 candidates</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Alexandria McNutt</td><td style="color:#94a3b8;">3/6</td><td>IL</td><td><span class="badge badge-active">Interviewing</span></td></tr>
+      <tr><td>Kate Eisenhaueer</td><td style="color:#94a3b8;">3/11</td><td>CA</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+      <tr><td>Annie Buttner</td><td style="color:#94a3b8;">3/12</td><td>MD</td><td><span class="badge badge-sent">Interview Requested</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Product Marketing Manager -->
+  <div class="role-card">
+    <div class="role-header">
+      <span style="font-weight:700; color:#1e293b;">Product Marketing Manager</span>
+      <span class="role-count">1 candidate</span>
+    </div>
+    <table>
+      <tr><th>Name</th><th>Date</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Brenna McGuire</td><td style="color:#94a3b8;">3/12</td><td>VA</td><td><span class="badge badge-rejected">Rejected</span></td></tr>
+    </table>
+  </div>
+
+  <div style="color:#cbd5e1; font-size:12px; text-align:center; margin-top:8px;">Generated by RFR · 800.com Project · March 2026</div>
+
+</div>
+</body>
+</html>
