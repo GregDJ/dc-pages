@@ -12,6 +12,7 @@
     .status-round1pete { background: #ecfdf5; color: #065f46; border-color: #6ee7b7; }
     .status-round1tom  { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
     .status-round2     { background: #fefce8; color: #a16207; border-color: #fde68a; }
+    .status-waiting    { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
     .status-assignment { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
     .status-rejected   { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
     .card { transition: box-shadow 0.15s; }
@@ -44,6 +45,7 @@
       <span class="px-2.5 py-1 rounded-full border status-round1pete font-medium">1st Round Interview w/ Pete</span>
       <span class="px-2.5 py-1 rounded-full border status-round1tom font-medium">1st Round Interview w/ Tom</span>
       <span class="px-2.5 py-1 rounded-full border status-round2 font-medium">2nd Round</span>
+      <span class="px-2.5 py-1 rounded-full border status-waiting font-medium">Waiting on Feedback</span>
       <span class="px-2.5 py-1 rounded-full border status-assignment font-medium">Assignment</span>
       <span class="px-2.5 py-1 rounded-full border status-rejected font-medium">Rejected</span>
     </div>
@@ -71,6 +73,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -104,6 +107,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -130,6 +134,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -163,6 +168,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -199,6 +205,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -224,6 +231,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -249,6 +257,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -274,6 +283,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -307,6 +317,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -333,6 +344,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -367,6 +379,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -393,6 +406,7 @@
                 <option value="round1pete">1st Round Interview w/ Pete</option>
                 <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
+                <option value="waiting">Waiting on Feedback</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
               </select>
@@ -417,13 +431,14 @@
       round1pete: 'status-round1pete',
       round1tom:  'status-round1tom',
       round2:     'status-round2',
+      waiting:    'status-waiting',
       assignment: 'status-assignment',
       rejected:   'status-rejected'
     };
     const STATUS_LABELS = {
       new: 'New', pete: 'Pete for Review',
       round1pete: '1st Round w/ Pete', round1tom: '1st Round w/ Tom',
-      round2: '2nd Round', assignment: 'Assignment', rejected: 'Rejected'
+      round2: '2nd Round', waiting: 'Waiting on Feedback', assignment: 'Assignment', rejected: 'Rejected'
     };
 
     function loadData() {
@@ -451,7 +466,7 @@
       Object.values(data).forEach(v => { if (v !== 'new') counts[v] = (counts[v] || 0) + 1; });
       const bar = document.getElementById('summary-bar');
       bar.innerHTML = '';
-      const order = ['pete', 'round1pete', 'round1tom', 'round2', 'assignment', 'rejected'];
+      const order = ['pete', 'round1pete', 'round1tom', 'round2', 'waiting', 'assignment', 'rejected'];
       order.forEach(key => {
         if (counts[key]) {
           const cls = STATUS_CLASSES[key];
