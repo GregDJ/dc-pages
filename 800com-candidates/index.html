@@ -6,67 +6,95 @@
   <title>800.com — Candidate Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    .status-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .status-new        { background: #f3f4f6; color: #374151; border-color: #d1d5db; }
+    .status-pete       { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .status-round1     { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+    .status-round2     { background: #fefce8; color: #a16207; border-color: #fde68a; }
+    .status-assignment { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
+    .status-rejected   { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
     .card { transition: box-shadow 0.15s; }
-    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .card:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
   <!-- Header -->
-  <div class="bg-white border-b border-gray-200 px-6 py-5 sticky top-0 z-10">
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
+  <div class="bg-white border-b border-gray-200 sticky top-0 z-20 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
       <div>
-        <h1 class="text-xl font-bold text-gray-900">800.com — Candidate Pipeline</h1>
-        <p class="text-sm text-gray-500 mt-0.5">Updated March 20, 2026 · Greg Valentine, Remote First Recruiting</p>
+        <h1 class="text-lg font-bold text-gray-900 leading-tight">800.com — Candidate Tracker</h1>
+        <p class="text-xs text-gray-400 mt-0.5">Greg Valentine · Remote First Recruiting · Updated Mar 20, 2026</p>
       </div>
-      <a href="mailto:greg@remotefirstrecruiting.com" class="text-sm bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">Contact Greg</a>
+      <div class="flex items-center gap-3">
+        <div id="summary-bar" class="hidden sm:flex gap-2 text-xs"></div>
+        <a href="mailto:greg@remotefirstrecruiting.com" class="text-sm bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition whitespace-nowrap">Contact Greg</a>
+      </div>
     </div>
   </div>
 
   <div class="max-w-5xl mx-auto px-6 py-8 space-y-10">
 
-    <!-- How to use -->
-    <div class="bg-blue-50 border border-blue-100 rounded-xl px-5 py-4 text-sm text-blue-800">
-      <strong>How to use:</strong> Review each candidate below. Click <strong>✓ Interested</strong> to email Greg and request an intro, or <strong>✗ Pass</strong> to decline.
+    <!-- Legend -->
+    <div class="flex flex-wrap gap-2 text-xs">
+      <span class="font-medium text-gray-500 self-center mr-1">Status:</span>
+      <span class="px-2.5 py-1 rounded-full border status-new font-medium">New</span>
+      <span class="px-2.5 py-1 rounded-full border status-pete font-medium">Pete for Review</span>
+      <span class="px-2.5 py-1 rounded-full border status-round1 font-medium">1st Round</span>
+      <span class="px-2.5 py-1 rounded-full border status-round2 font-medium">2nd Round</span>
+      <span class="px-2.5 py-1 rounded-full border status-assignment font-medium">Assignment</span>
+      <span class="px-2.5 py-1 rounded-full border status-rejected font-medium">Rejected</span>
     </div>
 
     <!-- AE AUTO -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Account Executive — Auto Vertical</h2>
-      <div class="space-y-4">
+      <div class="space-y-3">
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="amber-mcquillin">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Amber McQuillin</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Michigan · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$70K base · Uncapped OTE</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">2 wks notice</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Michigan · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$70K base · Uncapped OTE</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">2 wks notice</span>
               </div>
-              <p class="text-sm text-gray-600">10 years selling cars → 3 years AE at Transax (automotive/RV/powersports SaaS). Promoted from SDR. 20%+ close rate, 7–9 demos/week. Primarily outbound. Company changing model — good time to look.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">10 years selling cars → 3 years AE at Transax (automotive/RV/powersports SaaS). Promoted from SDR. 20%+ close rate, 7–9 demos/week. Primarily outbound. Company changing model — good time to look.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Amber%20McQuillin&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20Amber%20McQuillin%20for%20the%20Auto%20AE%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Amber%20McQuillin&body=Hi%20Greg%2C%20passing%20on%20Amber%20McQuillin%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'amber-mcquillin')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="melissa-conant">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Melissa (Missy) Conant</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Massachusetts · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$70K base · Uncapped OTE</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">1–2 wks notice</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Massachusetts · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$70K base · Uncapped OTE</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">1–2 wks notice</span>
               </div>
-              <p class="text-sm text-gray-600">Deep automotive SaaS roots (VAST, DealerRater) + 3 years healthcare SaaS. Closed $1.2M ARR in 2025, ~10 demos/week, never had an SDR. Laid off due to relocation requirement — available now.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">Deep automotive SaaS roots (VAST, DealerRater) + 3 years healthcare SaaS. Closed $1.2M ARR in 2025, ~10 demos/week, never had an SDR. Laid off due to relocation requirement — available now.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Melissa%20Conant&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20Melissa%20Conant%20for%20the%20Auto%20AE%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Melissa%20Conant&body=Hi%20Greg%2C%20passing%20on%20Melissa%20Conant%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'melissa-conant')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
@@ -77,151 +105,199 @@
     <!-- AE LEGAL -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Account Executive — Legal Vertical</h2>
-      <div class="space-y-4">
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+      <div class="space-y-3">
+
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="haley-hambly">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Haley Hambly</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">San Diego, CA · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$70K+ base</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">2 wks notice</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">San Diego, CA · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$70K+ base</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">2 wks notice</span>
               </div>
-              <p class="text-sm text-gray-600">6+ years SaaS AE. Sold into law firms at PhoneBurner (power dialer) — applied because she loved that vertical. Currently at Grantify (AI grant SaaS). Full-cycle, ~12 deals/month, self-sourced pipeline. Would be starting fresh — no book of business.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">6+ years SaaS AE. Sold into law firms at PhoneBurner (power dialer) — applied because she loved that vertical. Currently at Grantify (AI grant SaaS). Full-cycle, ~12 deals/month, self-sourced pipeline. Would be starting fresh — no book of business.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Haley%20Hambly&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20Haley%20Hambly%20for%20the%20Legal%20AE%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Haley%20Hambly&body=Hi%20Greg%2C%20passing%20on%20Haley%20Hambly%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'haley-hambly')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- AE HOME SERVICES -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Account Executive — Home Services Vertical</h2>
-      <div class="space-y-4">
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+      <div class="space-y-3">
+
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="david-greenberg">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">David Greenberg</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">New Jersey · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$70K base · ~$200K OTE</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">2 wks notice</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">New Jersey · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$70K base · ~$200K OTE</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">2 wks notice</span>
               </div>
-              <p class="text-sm text-gray-600">4+ years at Angie's List owning NYC/NJ/CT — still has 300 contractors on a list he could sell to. SaaS AE since 2018. Outgoing, outbound-heavy, relationship seller. Financial instability at current company.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">4+ years at Angie's List owning NYC/NJ/CT — still has 300 contractors on a list he could sell to. SaaS AE since 2018. Outgoing, outbound-heavy, relationship seller. Financial instability at current company.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20David%20Greenberg&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20David%20Greenberg%20for%20the%20Home%20Services%20AE%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20David%20Greenberg&body=Hi%20Greg%2C%20passing%20on%20David%20Greenberg%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'david-greenberg')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- AE REHAB -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Account Executive — Rehab / Recovery Vertical</h2>
-      <div class="space-y-4">
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+      <div class="space-y-3">
+
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="christine-proffitt">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Christine Proffitt</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Indianapolis, IN · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$65–70K base · $140K+ OTE</span>
-                <span class="text-xs font-semibold bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">Interviewing elsewhere</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Indianapolis, IN · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$65–70K base · $140K+ OTE</span>
+                <span class="text-xs bg-orange-50 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full">Interviewing elsewhere</span>
               </div>
-              <p class="text-sm text-gray-600">Full-cycle AE at Patient Prism (AI call analytics for dental/medical). SDR → AE, hit President's Club, 40% pipeline from trade shows. Personal connection to behavioral health space. Commission recently capped at current role — motivated to move.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">Full-cycle AE at Patient Prism (AI call analytics for dental/medical). SDR → AE, hit President's Club, 40% pipeline from trade shows. Personal connection to behavioral health space. Commission recently capped — motivated to move.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Christine%20Proffitt&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20Christine%20Proffitt%20for%20the%20Rehab%2FRecovery%20AE%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Christine%20Proffitt&body=Hi%20Greg%2C%20passing%20on%20Christine%20Proffitt%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'christine-proffitt')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- GROWTH AM -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Growth Account Manager</h2>
-      <div class="bg-amber-50 border border-amber-100 rounded-lg px-4 py-3 text-sm text-amber-800 mb-4">
-        ⚠️ <strong>Note:</strong> This role has been light on applications. The base salary may be a factor — candidates in this space typically target $60–70K base. Worth discussing if there's room to adjust.
+      <div class="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-xs text-amber-800 mb-3">
+        ⚠️ <strong>Note:</strong> Light on applications — base salary may be a factor. Candidates in this space typically target $60–70K base. Worth a conversation.
       </div>
-      <div class="space-y-4">
+      <div class="space-y-3">
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="david-haering">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">David Haering</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">California · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$65K base target</span>
-                <span class="text-xs font-semibold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Available immediately</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">California · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$65K base target</span>
+                <span class="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full">Available immediately</span>
               </div>
-              <p class="text-sm text-gray-600">8 years at Cielo24 (higher ed SaaS) — CS, AM, and inbound sales. Last 2.5 years handled all inbound with no sales team. Acquired by Rev.com, role moved to Austin. Strong communicator, did his research.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">8 years at Cielo24 (higher ed SaaS) — CS, AM, and inbound sales. Last 2.5 years handled all inbound with no sales team. Acquired by Rev.com, role moved to Austin. Strong communicator, did his research.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20David%20Haering&body=Hi%20Greg%2C%20I%27d%20like%20to%20meet%20David%20Haering%20for%20the%20Growth%20AM%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20David%20Haering&body=Hi%20Greg%2C%20passing%20on%20David%20Haering%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'david-haering')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="carter-obrien">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Carter O'Brien</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">North Carolina · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$55–60K base · $110K+ OTE</span>
-                <span class="text-xs font-semibold bg-red-100 text-red-700 px-2 py-0.5 rounded-full">Must leave by end of March</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">North Carolina · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$55–60K base · $110K+ OTE</span>
+                <span class="text-xs bg-red-50 text-red-700 border border-red-200 px-2 py-0.5 rounded-full">Must leave end of March</span>
               </div>
-              <p class="text-sm text-gray-600">3+ years AM/AE at Quilt/POS Nation. First AM hire, scaled the function to 8 people. Hit 60 deals/month vs. 20 target. Relocating — company won't go remote. Off April 10–13.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">3+ years AM/AE at Quilt/POS Nation. First AM hire, scaled the function to 8 people. Hit 60 deals/month vs. 20 target. Relocating — company won't go remote. Off April 10–13.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Carter%20O%27Brien&body=Hi%20Greg%2C%20I%27d%20like%20to%20meet%20Carter%20O%27Brien%20for%20the%20Growth%20AM%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Carter%20O%27Brien&body=Hi%20Greg%2C%20passing%20on%20Carter%20O%27Brien%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'carter-obrien')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="becca-pfister">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Becca Pfister</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Louisiana · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$70–75K base · $90–100K OTE</span>
-                <span class="text-xs font-semibold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Available quickly</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Louisiana · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$70–75K base · $90–100K OTE</span>
+                <span class="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full">Available quickly</span>
               </div>
-              <p class="text-sm text-gray-600">Managed $4M renewal/expansion portfolio at Eptura (SaaS). 120% to upsell target. 3 years at TraceSecurity (cybersecurity SaaS). Laid off due to restructuring — not performance. Outgoing, customer-centric, did her research.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">Managed $4M renewal/expansion portfolio at Eptura (SaaS). 120% to upsell target. 3 years at TraceSecurity (cybersecurity SaaS). Laid off due to restructuring — not performance. Outgoing, customer-centric, did her research.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Becca%20Pfister&body=Hi%20Greg%2C%20I%27d%20like%20to%20meet%20Becca%20Pfister%20for%20the%20Growth%20AM%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Becca%20Pfister&body=Hi%20Greg%2C%20passing%20on%20Becca%20Pfister%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'becca-pfister')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="cody-hathaway">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Cody Hathaway</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Pittsburgh, PA · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$75K base · $90K+ OTE</span>
-                <span class="text-xs font-semibold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Available immediately</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Pittsburgh, PA · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$75K base · $90K+ OTE</span>
+                <span class="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full">Available immediately</span>
               </div>
-              <p class="text-sm text-gray-600">7+ years at a VoIP/UC SaaS company — BDR → AE → Partner Development. Managed 750+ accounts. Previously referred clients to 800.com for vanity numbers. Prefers warm upsell over cold outbound.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">7+ years at a VoIP/UC SaaS company — BDR → AE → Partner Development. Managed 750+ accounts. Previously referred clients to 800.com for vanity numbers. Prefers warm upsell over cold outbound.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Cody%20Hathaway&body=Hi%20Greg%2C%20I%27d%20like%20to%20meet%20Cody%20Hathaway%20for%20the%20Growth%20AM%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Cody%20Hathaway&body=Hi%20Greg%2C%20passing%20on%20Cody%20Hathaway%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'cody-hathaway')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
@@ -232,40 +308,52 @@
     <!-- CONTENT & SALES ENABLEMENT -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Content & Sales Enablement</h2>
-      <div class="space-y-4">
+      <div class="space-y-3">
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="alex-mcnutt">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Alexandria (Alex) McNutt</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Illinois · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$90K base + bonus</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">2 wks notice</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Illinois · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$90K base + bonus</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">2 wks notice</span>
               </div>
-              <p class="text-sm text-gray-600">3+ years sole marketer at CivicServe (SaaS). HubSpot owner, built all outbound content and sales enablement for 10 AEs + 5 SDRs. Now expanding into SEO. Sharp, professional personality. Lacks industry experience but loved the JD.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">3+ years sole marketer at CivicServe (SaaS). HubSpot owner, built all outbound content and sales enablement for 10 AEs + 5 SDRs. Expanding into SEO. Sharp, professional. Lacks industry experience but loved the JD.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Alexandria%20McNutt&body=Hi%20Greg%2C%20I%27d%20like%20to%20speak%20with%20Alexandria%20McNutt%20for%20the%20Content%2FSales%20Enablement%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Alexandria%20McNutt&body=Hi%20Greg%2C%20passing%20on%20Alexandria%20McNutt%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'alex-mcnutt')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="annie-buttner">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Annie Buttner</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Maryland · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">Flexible on comp</span>
-                <span class="text-xs font-semibold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Available immediately</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Maryland · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">Flexible on comp</span>
+                <span class="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full">Available immediately</span>
               </div>
-              <p class="text-sm text-gray-600">Sole PMM at Prepared/Axon (911 AI software). Owned all content, GTM, and sales enablement for a 10-person sales team. Laid off after Axon acquisition. Strong revenue-tied mindset. Previously at Demandbase, Mainstay, Frontline Education. One week off in June.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">Sole PMM at Prepared/Axon (911 AI software). Owned all content, GTM, and sales enablement for a 10-person sales team. Laid off after Axon acquisition. Strong revenue-tied mindset. Previously at Demandbase, Mainstay, Frontline Education.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Annie%20Buttner&body=Hi%20Greg%2C%20I%27d%20like%20to%20speak%20with%20Annie%20Buttner%20for%20the%20Content%2FSales%20Enablement%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Annie%20Buttner&body=Hi%20Greg%2C%20passing%20on%20Annie%20Buttner%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'annie-buttner')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
@@ -276,42 +364,54 @@
     <!-- PMM / CADDY -->
     <section>
       <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Product Marketing Manager (800.com / Caddy)</h2>
-      <div class="space-y-4">
+      <div class="space-y-3">
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="chelsea-batschke">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <a href="https://www.linkedin.com/in/chelseaberkobien/" target="_blank" class="font-semibold text-blue-600 hover:underline">Chelsea Batschke ↗</a>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Michigan · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">$100K base + upside</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">2 wks notice</span>
-                <span class="text-xs font-semibold bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">Away 3/28–4/4</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Michigan · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">$100K base + upside</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">2 wks notice</span>
+                <span class="text-xs bg-orange-50 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full">Away 3/28–4/4</span>
               </div>
-              <p class="text-sm text-gray-600">5 years at <a href="https://signalwire.com" target="_blank" class="text-blue-600 hover:underline">SignalWire</a> (CPaaS/voice AI — direct industry peer to 800.com, competes with Twilio). Sole PMM at 100-person engineering-heavy company. Owns all positioning, copy, and campaigns. CSM background gives her a customer lens. Open to PMM or Content/Sales Enablement. Not a HubSpot expert.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">5 years at <a href="https://signalwire.com" target="_blank" class="text-blue-600 hover:underline">SignalWire</a> (CPaaS/voice AI — direct peer to 800.com, competes with Twilio). Sole PMM at 100-person engineering-heavy company. Owns all positioning, copy, and campaigns. CSM background gives her a customer lens. Open to PMM or Content/Sales Enablement.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Chelsea%20Batschke&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20Chelsea%20Batschke%20-%20please%20let%20me%20know%20if%20Pete%20or%20Tom%20should%20take%20it." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Chelsea%20Batschke&body=Hi%20Greg%2C%20passing%20on%20Chelsea%20Batschke%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'chelsea-batschke')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <div class="card bg-white rounded-xl border border-gray-200 p-5">
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 flex-wrap mb-2">
+        <div class="card bg-white rounded-xl border border-gray-200 p-5" data-id="brenna-mcguire">
+          <div class="flex items-start gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap mb-1.5">
                 <span class="font-semibold text-gray-900">Brenna McGuire</span>
-                <span class="text-xs font-semibold bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full">Caddy role</span>
-                <span class="text-xs font-semibold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Virginia · Remote</span>
-                <span class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">Flexible on comp</span>
-                <span class="text-xs font-semibold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Available immediately</span>
+                <span class="text-xs bg-purple-50 text-purple-700 border border-purple-200 px-2 py-0.5 rounded-full">Caddy role</span>
+                <span class="text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-0.5 rounded-full">Virginia · Remote</span>
+                <span class="text-xs bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full">Flexible on comp</span>
+                <span class="text-xs bg-green-50 text-green-700 border border-green-200 px-2 py-0.5 rounded-full">Available immediately</span>
               </div>
-              <p class="text-sm text-gray-600">PMM at Snap! Mobile (youth athletics SaaS) — owned customer comms, email campaigns, sales enablement, helped launch their mobile app. Also at Thnks, a solopreneur-focused B2B SaaS. Leans more marketing than product, but motivated to grow into ownership over time. Good long-term fit for Caddy.</p>
+              <p class="text-sm text-gray-600 leading-relaxed">PMM at Snap! Mobile (youth athletics SaaS) — owned customer comms, email campaigns, sales enablement, helped launch their mobile app. Also at Thnks (solopreneur-focused B2B SaaS). Leans more marketing than product, motivated to grow into ownership. Good long-term fit for Caddy.</p>
             </div>
-            <div class="flex flex-col gap-2 shrink-0">
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Interested%20in%20Brenna%20McGuire%20(Caddy)&body=Hi%20Greg%2C%20I%27d%20like%20to%20set%20up%20a%20call%20with%20Brenna%20McGuire%20for%20the%20Caddy%20PMM%20role." class="text-sm font-medium bg-green-600 text-white px-4 py-1.5 rounded-lg hover:bg-green-700 text-center transition whitespace-nowrap">✓ Interested</a>
-              <a href="mailto:greg@remotefirstrecruiting.com?subject=800.com%20-%20Pass%20on%20Brenna%20McGuire&body=Hi%20Greg%2C%20passing%20on%20Brenna%20McGuire%20for%20now." class="text-sm font-medium bg-white text-gray-500 border border-gray-200 px-4 py-1.5 rounded-lg hover:bg-gray-50 text-center transition whitespace-nowrap">✗ Pass</a>
+            <div class="shrink-0 w-44">
+              <select onchange="setStatus(this, 'brenna-mcguire')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
+                <option value="new">— New —</option>
+                <option value="pete">Pete for Review</option>
+                <option value="round1">1st Round</option>
+                <option value="round2">2nd Round</option>
+                <option value="assignment">Assignment</option>
+                <option value="rejected">Rejected / Not a Fit</option>
+              </select>
             </div>
           </div>
         </div>
@@ -319,10 +419,79 @@
       </div>
     </section>
 
-    <div class="text-center text-xs text-gray-400 pt-4 border-t border-gray-100 pb-8">
-      Greg Valentine · Remote First Recruiting · greg@remotefirstrecruiting.com
+    <div class="text-center text-xs text-gray-400 pt-6 border-t border-gray-100 pb-8">
+      Greg Valentine · Remote First Recruiting · <a href="mailto:greg@remotefirstrecruiting.com" class="hover:text-gray-600">greg@remotefirstrecruiting.com</a>
     </div>
 
   </div>
+
+  <script>
+    const STORAGE_KEY = '800com-tracker-v1';
+    const STATUS_CLASSES = {
+      new:        'status-new',
+      pete:       'status-pete',
+      round1:     'status-round1',
+      round2:     'status-round2',
+      assignment: 'status-assignment',
+      rejected:   'status-rejected'
+    };
+    const STATUS_LABELS = {
+      new: 'New', pete: 'Pete for Review', round1: '1st Round',
+      round2: '2nd Round', assignment: 'Assignment', rejected: 'Rejected'
+    };
+
+    function loadData() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
+    }
+
+    function saveData(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function setStatus(select, id) {
+      const val = select.value;
+      // Remove all status classes, apply new one
+      Object.values(STATUS_CLASSES).forEach(c => select.classList.remove(c));
+      select.classList.add(STATUS_CLASSES[val] || 'status-new');
+      // Save
+      const data = loadData();
+      data[id] = val;
+      saveData(data);
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const data = loadData();
+      const counts = {};
+      Object.values(data).forEach(v => { if (v !== 'new') counts[v] = (counts[v] || 0) + 1; });
+      const bar = document.getElementById('summary-bar');
+      bar.innerHTML = '';
+      const order = ['pete', 'round1', 'round2', 'assignment', 'rejected'];
+      order.forEach(key => {
+        if (counts[key]) {
+          const cls = STATUS_CLASSES[key];
+          bar.innerHTML += `<span class="px-2 py-0.5 rounded-full border font-semibold ${cls}">${STATUS_LABELS[key]}: ${counts[key]}</span>`;
+        }
+      });
+    }
+
+    function restoreStatuses() {
+      const data = loadData();
+      document.querySelectorAll('[data-id]').forEach(card => {
+        const id = card.dataset.id;
+        if (data[id]) {
+          const select = card.querySelector('select');
+          select.value = data[id];
+          Object.values(STATUS_CLASSES).forEach(c => select.classList.remove(c));
+          select.classList.add(STATUS_CLASSES[data[id]] || 'status-new');
+        }
+      });
+      updateSummary();
+    }
+
+    restoreStatuses();
+  </script>
+
 </body>
 </html>
