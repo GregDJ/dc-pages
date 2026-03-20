@@ -9,8 +9,8 @@
     .status-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
     .status-new        { background: #f3f4f6; color: #374151; border-color: #d1d5db; }
     .status-pete       { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-    .status-interview  { background: #ecfdf5; color: #065f46; border-color: #6ee7b7; }
-    .status-round1     { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+    .status-round1pete { background: #ecfdf5; color: #065f46; border-color: #6ee7b7; }
+    .status-round1tom  { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
     .status-round2     { background: #fefce8; color: #a16207; border-color: #fde68a; }
     .status-assignment { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
     .status-rejected   { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
@@ -41,8 +41,8 @@
       <span class="font-medium text-gray-500 self-center mr-1">Status:</span>
       <span class="px-2.5 py-1 rounded-full border status-new font-medium">New</span>
       <span class="px-2.5 py-1 rounded-full border status-pete font-medium">Pete for Review</span>
-      <span class="px-2.5 py-1 rounded-full border status-interview font-medium">Interview w/ Pete</span>
-      <span class="px-2.5 py-1 rounded-full border status-round1 font-medium">1st Round</span>
+      <span class="px-2.5 py-1 rounded-full border status-round1pete font-medium">1st Round Interview w/ Pete</span>
+      <span class="px-2.5 py-1 rounded-full border status-round1tom font-medium">1st Round Interview w/ Tom</span>
       <span class="px-2.5 py-1 rounded-full border status-round2 font-medium">2nd Round</span>
       <span class="px-2.5 py-1 rounded-full border status-assignment font-medium">Assignment</span>
       <span class="px-2.5 py-1 rounded-full border status-rejected font-medium">Rejected</span>
@@ -68,8 +68,8 @@
               <select onchange="setStatus(this, 'amber-mcquillin')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -101,8 +101,8 @@
               <select onchange="setStatus(this, 'david-greenberg')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -127,8 +127,8 @@
               <select onchange="setStatus(this, 'glenn-whitmarsh')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -160,8 +160,8 @@
               <select onchange="setStatus(this, 'christine-proffitt')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -196,8 +196,8 @@
               <select onchange="setStatus(this, 'david-haering')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -221,8 +221,8 @@
               <select onchange="setStatus(this, 'carter-obrien')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -246,8 +246,8 @@
               <select onchange="setStatus(this, 'becca-pfister')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -271,8 +271,8 @@
               <select onchange="setStatus(this, 'cody-hathaway')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -304,8 +304,8 @@
               <select onchange="setStatus(this, 'alex-mcnutt')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -330,8 +330,8 @@
               <select onchange="setStatus(this, 'annie-buttner')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -364,8 +364,8 @@
               <select onchange="setStatus(this, 'chelsea-batschke')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -390,8 +390,8 @@
               <select onchange="setStatus(this, 'brenna-mcguire')" class="status-select w-full text-xs font-semibold px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-gray-300 status-new">
                 <option value="new">— New —</option>
                 <option value="pete">Pete for Review</option>
-                <option value="interview">Interview w/ Pete</option>
-                <option value="round1">1st Round</option>
+                <option value="round1pete">1st Round Interview w/ Pete</option>
+                <option value="round1tom">1st Round Interview w/ Tom</option>
                 <option value="round2">2nd Round</option>
                 <option value="assignment">Assignment</option>
                 <option value="rejected">Rejected / Not a Fit</option>
@@ -414,15 +414,16 @@
     const STATUS_CLASSES = {
       new:        'status-new',
       pete:       'status-pete',
-      interview:  'status-interview',
-      round1:     'status-round1',
+      round1pete: 'status-round1pete',
+      round1tom:  'status-round1tom',
       round2:     'status-round2',
       assignment: 'status-assignment',
       rejected:   'status-rejected'
     };
     const STATUS_LABELS = {
-      new: 'New', pete: 'Pete for Review', interview: 'Interview w/ Pete',
-      round1: '1st Round', round2: '2nd Round', assignment: 'Assignment', rejected: 'Rejected'
+      new: 'New', pete: 'Pete for Review',
+      round1pete: '1st Round w/ Pete', round1tom: '1st Round w/ Tom',
+      round2: '2nd Round', assignment: 'Assignment', rejected: 'Rejected'
     };
 
     function loadData() {
@@ -450,7 +451,7 @@
       Object.values(data).forEach(v => { if (v !== 'new') counts[v] = (counts[v] || 0) + 1; });
       const bar = document.getElementById('summary-bar');
       bar.innerHTML = '';
-      const order = ['pete', 'interview', 'round1', 'round2', 'assignment', 'rejected'];
+      const order = ['pete', 'round1pete', 'round1tom', 'round2', 'assignment', 'rejected'];
       order.forEach(key => {
         if (counts[key]) {
           const cls = STATUS_CLASSES[key];
