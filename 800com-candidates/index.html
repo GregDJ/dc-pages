@@ -475,6 +475,23 @@
       });
     }
 
+    function saveNote(textarea, id) {
+      const data = loadData();
+      if (!data.__notes) data.__notes = {};
+      data.__notes[id] = textarea.value;
+      saveData(data);
+    }
+
+    function injectNotes() {
+      document.querySelectorAll('[data-id]').forEach(card => {
+        const id = card.dataset.id;
+        const div = document.createElement('div');
+        div.className = 'mt-3 pt-3 border-t border-gray-100';
+        div.innerHTML = `<textarea data-notes-id="${id}" onblur="saveNote(this,'${id}')" placeholder="Notes..." rows="2" class="w-full text-xs text-gray-600 placeholder-gray-300 resize-none border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300"></textarea>`;
+        card.appendChild(div);
+      });
+    }
+
     function restoreStatuses() {
       const data = loadData();
       document.querySelectorAll('[data-id]').forEach(card => {
@@ -485,10 +502,15 @@
           Object.values(STATUS_CLASSES).forEach(c => select.classList.remove(c));
           select.classList.add(STATUS_CLASSES[data[id]] || 'status-new');
         }
+        if (data.__notes && data.__notes[id]) {
+          const ta = card.querySelector('textarea');
+          if (ta) ta.value = data.__notes[id];
+        }
       });
       updateSummary();
     }
 
+    injectNotes();
     restoreStatuses();
   </script>
 
